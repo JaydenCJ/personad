@@ -1,0 +1,40 @@
+# Example persona file for personad — the same fixture the README, the test
+# suite and scripts/smoke.sh all use, so every documented token is real.
+
+issuer = "http://127.0.0.1:9111"
+seed = "ci-seed-1" # deterministically derives the signing key
+
+[tokens]
+ttl = "1h"
+# Freeze the clock: with issued_at set, minted tokens are byte-stable and
+# safe to pin in snapshot tests. Remove it to use the wall clock.
+issued_at = "2026-01-01T00:00:00Z"
+
+# A confidential client (server-side web app).
+[[clients]]
+client_id = "web-app"
+client_secret = "s3cret"
+redirect_uris = ["http://127.0.0.1:3000/callback"]
+
+# A public client (SPA / native app) — no secret, PKCE required.
+[[clients]]
+client_id = "spa"
+redirect_uris = ["http://127.0.0.1:5173/callback"]
+
+[[personas]]
+name = "alice"
+subject = "user-alice-001"
+email = "alice@example.test"
+email_verified = true
+groups = ["admin", "dev"]
+
+# Arbitrary extra claims, released under the "profile" scope.
+[personas.claims]
+department = "engineering"
+level = 5
+
+[[personas]]
+name = "bob"
+subject = "user-bob-002"
+email = "bob@example.test"
+groups = ["dev"]

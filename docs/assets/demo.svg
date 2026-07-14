@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="430" viewBox="0 0 720 430" font-family="Menlo, Consolas, monospace" font-size="14">
+  <rect width="720" height="430" rx="10" fill="#101418"/>
+  <circle cx="24" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="22" r="6" fill="#27c93f"/>
+  <text x="360" y="27" fill="#8b949e" text-anchor="middle" font-size="12">personad — the same bytes, every single time</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="62"><tspan fill="#7ee787">$</tspan> personad mint --config personas.toml --persona alice --client web-app</text>
+    <text x="24" y="86" font-size="11" fill="#79c0ff">eyJhbGciOiJFZERTQSIsImtpZCI6ImZnSkc3TzYzcDRHblZ2bFdEbGc3b3JSNzJTeGFYZWM0…</text>
+    <text x="24" y="118"><tspan fill="#7ee787">$</tspan> personad mint … | sha256sum   <tspan fill="#8b949e"># run it again — snapshot-safe</tspan></text>
+    <text x="24" y="140" fill="#d2a8ff">b3b91acafbfb…  <tspan fill="#7ee787">identical</tspan></text>
+    <text x="24" y="174"><tspan fill="#7ee787">$</tspan> personad decode --config personas.toml eyJhbGciOiJFZERTQSIs…</text>
+    <text x="24" y="198">{</text>
+    <text x="24" y="218">  <tspan fill="#79c0ff">"claims"</tspan>: {</text>
+    <text x="24" y="238">    <tspan fill="#79c0ff">"aud"</tspan>: <tspan fill="#a5d6ff">"web-app"</tspan>, <tspan fill="#79c0ff">"department"</tspan>: <tspan fill="#a5d6ff">"engineering"</tspan>,</text>
+    <text x="24" y="258">    <tspan fill="#79c0ff">"email"</tspan>: <tspan fill="#a5d6ff">"alice@example.test"</tspan>, <tspan fill="#79c0ff">"groups"</tspan>: [<tspan fill="#a5d6ff">"admin"</tspan>, <tspan fill="#a5d6ff">"dev"</tspan>],</text>
+    <text x="24" y="278">    <tspan fill="#79c0ff">"iat"</tspan>: <tspan fill="#d2a8ff">1767225600</tspan>, <tspan fill="#79c0ff">"sub"</tspan>: <tspan fill="#a5d6ff">"user-alice-001"</tspan> <tspan fill="#8b949e">// frozen clock</tspan></text>
+    <text x="24" y="298">  },</text>
+    <text x="24" y="318">  <tspan fill="#79c0ff">"signature"</tspan>: <tspan fill="#7ee787">"verified"</tspan></text>
+    <text x="24" y="338">}</text>
+    <text x="24" y="372"><tspan fill="#7ee787">$</tspan> personad serve --config personas.toml</text>
+    <text x="24" y="394">personad 127.0.0.1:9111 listening   <tspan fill="#8b949e">discovery · jwks · authorize · token · userinfo</tspan></text>
+    <text x="24" y="414">personas:  <tspan fill="#7ee787">alice</tspan>, <tspan fill="#7ee787">bob</tspan></text>
+  </g>
+</svg>
